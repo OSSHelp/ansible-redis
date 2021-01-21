@@ -1,0 +1,7 @@
+---
+- name: install
+  include_tasks: install.yml
+  when: redis_setup == "full"
+
+- name: configure
+  import_tasks: configure.yml

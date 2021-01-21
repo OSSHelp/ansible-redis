@@ -1,0 +1,14 @@
+---
+- name: install required packages
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - software-properties-common
+    state: present
+    update_cache: true
+    cache_valid_time: 86400
+
+- name: add ppa
+  apt_repository:
+    repo: "{{ redis_ppa }}"

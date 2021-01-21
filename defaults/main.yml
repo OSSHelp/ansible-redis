@@ -1,0 +1,12 @@
+---
+redis_setup: full
+redis_ppa: "ppa:chris-lea/redis-server"
+redis_from_ppa: false
+
+redis_config_path: /etc/redis/redis.conf
+
+redis_default_params:
+  bind: '0.0.0.0 ::'
+  port: '6379'
+
+redis_params: {}

@@ -1,0 +1,15 @@
+---
+- name: redis ppa
+  include_tasks: redis-ppa.yml
+  when: redis_from_ppa
+
+- name: install packages
+  apt:
+    name: redis-server
+    update_cache: yes
+    cache_valid_time: 86400
+
+- name: enable service
+  service:
+    name: redis-server
+    enabled: yes

@@ -1,0 +1,8 @@
+---
+- name: deploy configuration
+  lineinfile:
+    dest: "{{ redis_config_path }}"
+    regexp: "^{{ item.key }} "
+    line: "{{ item.key }} {{ item.value }}"
+  notify: restart redis service
+  loop: "{{ redis_default_params|combine(redis_params)|dict2items }}"
